@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_atoi(const char *str)
 {
-	long 	result;
-	int	i;
-	int	sign;
+	long	result;
+	int		i;
+	int		sign;
 
 	i = 0;
 	result = 0;
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 	}
 	if (result * sign > 2147483647 || result * sign < -2147483648)
 	{
-		write(2, "Error\n", 6);
+		write(2, "Error Atoi\n", 11);
 		exit (1);
 	}
 	return (result * sign);

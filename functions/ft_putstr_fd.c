@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/15 20:26:01 by bpouchep          #+#    #+#             */
-/*   Updated: 2020/07/15 20:26:02 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/14 23:50:11 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/14 23:50:22 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && n > 0)
+	while (s[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
+		ft_putchar_fd(s[i], fd);
 		i++;
-		n--;
 	}
-	return (0);
 }
