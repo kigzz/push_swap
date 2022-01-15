@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_dlstmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:31:04 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/15 15:31:05 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/15 15:34:39 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/15 15:34:41 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(const char *str)
+t_dlist	*ft_dlstmap(t_dlist *dlst, void *(*f)(void *), void (*del)(void *))
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
+	t_dlist *new;
+	t_dlist *newdlst;
+
+	if (!dlst || !f)
+		return (NULL);
+	newdlst = NULL;
+	while (dlst)
 	{
-		if (*str >= '0' && *str <= '9')
-			str++;
-		else
-			return (0);
+		new = ft_dlstnew(f(dlst->data));
+		if (!new) {
+			ft_dlstclear(&newdlst, del);
+			return (NULL);
+		}
+		ft_dlstadd_back(&newdlst, new);
+		dlst = dlst->next;
 	}
-	return (1);
+	return (newdlst);
 }

@@ -17,12 +17,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct Node
+typedef struct s_dlist
 {
-	int			x;
-	struct Node	*next;
-	struct Node	*prev;
-}	t_Node;
+	void		*data;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}	t_dlist;
 
 /* libft function */
 
@@ -36,6 +36,19 @@ int		ft_atoi(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_isdigit(const char *str);
+
+/* double link list functions */
+
+void	ft_dlstdelone(t_dlist *dlst, void (*del)(void *));
+void	ft_dlstadd_back(t_dlist **dlst, t_dlist *new);
+void	ft_dlstadd_front(t_dlist **dlst, t_dlist *new);
+void	ft_dlstclear(t_dlist **dlst, void (*del)(void *));
+t_dlist	*ft_dlstfirst(t_dlist *dlst);
+void	ft_dlstiter(t_dlist *dlst, void (*f)(void *));
+t_dlist	*ft_dlstlast(t_dlist *dlst);
+t_dlist	*ft_dlstmap(t_dlist *dlst, void *(*f)(void *), void (*del)(void *));
+t_dlist	*ft_dlstnew(void *data);
+int		ft_dlstsize(t_dlist *dlst);
 
 /* push_swap functions */
 

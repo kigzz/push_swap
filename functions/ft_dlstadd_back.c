@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_dlstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:31:04 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/15 15:31:05 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/15 15:31:51 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/15 15:32:10 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(const char *str)
+void	ft_dlstadd_back(t_dlist **dlst, t_dlist *new)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
+	t_dlist	*last;
+
+	if (!dlst || !new)
+		return ;
+	if (*dlst)
 	{
-		if (*str >= '0' && *str <= '9')
-			str++;
-		else
-			return (0);
+		last = ft_dlstlast(*dlst);
+		last->next = new;
+		new->prev = last;
 	}
-	return (1);
+	else
+		*dlst = new;
 }

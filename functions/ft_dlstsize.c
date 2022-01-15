@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_dlstsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:31:04 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/15 15:31:05 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/15 15:34:59 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/15 15:35:02 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(const char *str)
+int	ft_dlstsize(t_dlist *dlst)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	size_t	len;
+
+	if (!dlst)
+		return (0);
+	len = 0;
+	while (dlst && ++len)
+		dlst = dlst->next;
+	return (len);
 }

@@ -90,7 +90,13 @@ int main (int argc, char *argv[])
 	while (nbrs[++i])
 		free(nbrs[i]);
 	free(nbrs);
-	free(arr);
+//	free(arr);
+
+	//			Initialisation de la liste chainée
+
+
+
+
 	return (0);
 }
 

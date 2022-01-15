@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_dsldelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:31:04 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/15 15:31:05 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/15 15:33:11 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/15 15:33:38 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(const char *str)
+void	ft_dlstdelone(t_dlist *dlst, void (*del)(void *))
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	if (!dlst || !del)
+		return ;
+	del(dlst->data);
+	free(dlst);
 }
