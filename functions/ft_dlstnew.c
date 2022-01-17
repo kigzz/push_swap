@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-t_dlist	*ft_dlstnew(void *data)
+t_dlist	*ft_dlstnew(int data)
 {
 	t_dlist	*newdlst;
 
