@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_duplicate(int *arr, int n)
+int	check_duplicate(int *arr, int n)
 {
 	int	i;
 	int	j;
@@ -54,7 +54,7 @@ int	ft_duplicate(int *arr, int n)
 //		}
 //			arr[i - 1] = ft_atoi(argv[i]);
 //	}
-//	if (ft_duplicate(arr, argc - 1) == 1)
+//	if (check_duplicate(arr, argc - 1) == 1)
 //	{
 //		free(arr);
 ////		error();

@@ -22,6 +22,7 @@ typedef struct s_dlist
 	int 			data;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
+	int 			size;
 }	t_dlist;
 
 /* libft function */
@@ -49,8 +50,14 @@ int		ft_dlstsize(t_dlist *dlst);
 /* push_swap functions */
 
 void	ft_sort(int *arr, int n);
-int		ft_duplicate(int *arr, int n);
+int		check_duplicate(int *arr, int n);
 void	check_input(int argc, char *argv[]);
 void	error(void);
+
+/* ops */
+
+void pb(t_dlist **a, t_dlist **b, int print);
+void pa(t_dlist **a, t_dlist **b, int print);
+
 
 #endif
