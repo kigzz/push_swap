@@ -12,11 +12,11 @@
 
 #include "../includes/push_swap.h"
 
-t_dlist	*ft_dlstnew(int data)
+t_dlst	*ft_dlstnew(int data)
 {
-	t_dlist	*newdlst;
+	t_dlst	*newdlst;
 
-	newdlst = (t_dlist *)malloc(sizeof(t_dlist));
+	newdlst = (t_dlst *)malloc(sizeof(t_dlst));
 	if (!newdlst)
 		return (NULL);
 	newdlst->data = data;

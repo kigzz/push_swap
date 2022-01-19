@@ -12,9 +12,9 @@
 
 #include "../includes/push_swap.h"
 
-static void	rotate(t_dlist **dlst, int rev)
+static void	rotate(t_dlst **dlst, int rev)
 {
-	t_dlist	*tmp;
+	t_dlst	*tmp;
 
 	if (!*dlst || ft_dlstsize(*dlst) < 2)
 		return ;
@@ -35,28 +35,28 @@ static void	rotate(t_dlist **dlst, int rev)
 	}
 }
 
-void	ra(t_dlist **dlst, int print)
+void	ra(t_dlst **dlst, int print)
 {
 	rotate(dlst, 0);
 	if (print)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_dlist **dlst, int print)
+void	rb(t_dlst **dlst, int print)
 {
 	rotate(dlst, 0);
 	if (print)
 		write(1, "rb\n", 3);
 }
 
-void	rra(t_dlist **dlst, int print)
+void	rra(t_dlst **dlst, int print)
 {
 	rotate(dlst, 1);
 	if (print)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(t_dlist **dlst, int print)
+void	rrb(t_dlst **dlst, int print)
 {
 	rotate(dlst, 1);
 	if (print)

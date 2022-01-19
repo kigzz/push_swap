@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_dlstadd_front(t_dlist **dlst, t_dlist *new)
+void	ft_dlstadd_front(t_dlst **dlst, t_dlst *new)
 {
 	if (!dlst || !new)
 		return ;

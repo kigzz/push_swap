@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_dlstsize(t_dlist *dlst)
+int	ft_dlstsize(t_dlst *dlst)
 {
 	size_t	len;
 

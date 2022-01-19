@@ -12,9 +12,9 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_dlstadd_back(t_dlist **dlst, t_dlist *new)
+void	ft_dlstadd_back(t_dlst **dlst, t_dlst *new)
 {
-	t_dlist	*last;
+	t_dlst	*last;
 
 	if (!dlst || !new)
 		return ;

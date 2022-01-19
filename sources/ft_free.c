@@ -22,9 +22,9 @@ void	free_split(char **nbrs)
 	free(nbrs);
 }
 
-void	free_tab(t_dlist **dlst)
+void	free_tab(t_dlst **dlst)
 {
-	t_dlist	*tmp;
+	t_dlst	*tmp;
 
 	if (*dlst == NULL)
 		return ;

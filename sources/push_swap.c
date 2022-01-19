@@ -16,7 +16,7 @@ int	main(int argc, char *argv[])
 {
 	int		n_cnt;
 	int		*arr;
-	t_dlist	*a_stack;
+	t_dlst	*a_stack;
 
 	if (argc == 1)
 		return (0);
@@ -27,11 +27,10 @@ int	main(int argc, char *argv[])
 	//			Initialisation de la liste chainée
 
 	a_stack = create_list(n_cnt, arr);
-	free(arr);
 
 				// TEST TEST
 
-	t_dlist *curr = a_stack;
+	t_dlst *curr = a_stack;
 	while (curr != NULL)
 	{
 		printf("Init Stack A : %d\n", curr->data);
@@ -43,7 +42,7 @@ int	main(int argc, char *argv[])
 //		TEST OPS
 
 
-	t_dlist *b_stack;
+	t_dlst *b_stack;
 	b_stack = NULL;
 
 	printf("first %d - last %d\n", ft_dlstfirst(a_stack)->data, ft_dlstlast(a_stack)->data);
@@ -55,30 +54,34 @@ int	main(int argc, char *argv[])
 //	sb(b_stack, 0);
 //	sb(b_stack, 0);
 //	pa(&a_stack, &b_stack, 0);
-	pb(&a_stack, &b_stack, 0);
-	pb(&a_stack, &b_stack, 0);
-	pb(&a_stack, &b_stack, 0);
-//	pa(&a_stack, &b_stack, 0);
+//	pb(&a_stack, &b_stack, 0);
+//	pb(&a_stack, &b_stack, 0);
+//	pb(&a_stack, &b_stack, 0);
+////	pa(&a_stack, &b_stack, 0);
+//
+//	sb(b_stack, 0);
+//	rrr(&a_stack, &b_stack, 0);
+//
 
-	sb(b_stack, 0);
-	rrr(&a_stack, &b_stack, 0);
 	// Print stack A
-	curr = ft_dlstfirst(a_stack);
+
+	sort_3(&a_stack);
+
+	curr = a_stack;
 	while (curr != NULL)
 	{
 		printf("A après OPS : %d\n", curr->data);
 		curr = curr->next;
-
 	}
-
 	curr = b_stack;
-	while (curr)
-	{
-		printf("- B après OPS : %d\n", curr->data);
-		curr = curr->next;
-	}
+//	while (curr)
+//	{
+//		printf("- B après OPS : %d\n", curr->data);
+//		curr = curr->next;
+//	}
 	//		Leaks
 
+	free(arr);
 	free_tab(&a_stack);
 	free_tab(&b_stack);
 	return (0);

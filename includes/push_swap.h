@@ -17,12 +17,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_dlist
+typedef struct s_dlst
 {
 	int				data;
-	struct s_dlist	*next;
-	struct s_dlist	*prev;
-}	t_dlist;
+	struct s_dlst	*next;
+	struct s_dlst	*prev;
+}	t_dlst;
 
 /* libft function */
 
@@ -38,36 +38,40 @@ int		ft_isdigit(const char *str);
 
 /* double link list functions */
 
-void	ft_dlstadd_back(t_dlist **dlst, t_dlist *new);
-void	ft_dlstadd_front(t_dlist **dlst, t_dlist *new);
-t_dlist	*ft_dlstfirst(t_dlist *dlst);
-t_dlist	*ft_dlstlast(t_dlist *dlst);
-t_dlist	*ft_dlstnew(int data);
-int		ft_dlstsize(t_dlist *dlst);
+void	ft_dlstadd_back(t_dlst **dlst, t_dlst *new);
+void	ft_dlstadd_front(t_dlst **dlst, t_dlst *new);
+t_dlst	*ft_dlstfirst(t_dlst *dlst);
+t_dlst	*ft_dlstlast(t_dlst *dlst);
+t_dlst	*ft_dlstnew(int data);
+int		ft_dlstsize(t_dlst *dlst);
 
 /* free functions */
 
 void	free_split(char **nbrs);
-void	free_tab(t_dlist **dlst);
+void	free_tab(t_dlst **dlst);
 
 /* push_swap functions */
 
 int		check_input(int argc, char **argv, int **arr);
 char	**parse_args(int argc, char **argv);
 int		*create_array(char **nbrs, int n_cnt);
-t_dlist	*create_list(int n_cnt, int *arr);
+t_dlst	*create_list(int n_cnt, int *arr);
 
 /* ops */
 
-void	pb(t_dlist **a, t_dlist **b, int print);
-void	pa(t_dlist **a, t_dlist **b, int print);
-void	sa(t_dlist *a, int print);
-void	sb(t_dlist *a, int print);
-void	ra(t_dlist **dlst, int print);
-void	rb(t_dlist **dlst, int print);
-void	rra(t_dlist **dlst, int print);
-void	rrb(t_dlist **dlst, int print);
-void	rr(t_dlist **a, t_dlist **b, int print);
-void	rrr(t_dlist **a, t_dlist **b, int print);
+void	pb(t_dlst **a, t_dlst **b, int print);
+void	pa(t_dlst **a, t_dlst **b, int print);
+void	sa(t_dlst **a, int print);
+void	sb(t_dlst **a, int print);
+void	ra(t_dlst **dlst, int print);
+void	rb(t_dlst **dlst, int print);
+void	rra(t_dlst **dlst, int print);
+void	rrb(t_dlst **dlst, int print);
+void	rr(t_dlst **a, t_dlst **b, int print);
+void	rrr(t_dlst **a, t_dlst **b, int print);
+
+/* sort */
+
+void	sort_3(t_dlst **dlst);
 
 #endif

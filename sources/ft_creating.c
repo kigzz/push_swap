@@ -12,9 +12,9 @@
 
 #include "../includes/push_swap.h"
 
-t_dlist	*create_list(int n_cnt, int *arr)
+t_dlst	*create_list(int n_cnt, int *arr)
 {
-	t_dlist	*a_stack;
+	t_dlst	*a_stack;
 	int		i;
 
 	i = 0;

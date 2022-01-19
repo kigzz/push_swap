@@ -8,7 +8,7 @@ RM			=	rm -rf
 #FILES AND PATH
 HEADER_SRCS	=	push_swap.h
 
-SRCS    	=	push_swap.c ft_checks.c ft_creating.c ft_free.c ops_p.c ops_s.c ops_r.c ops_rr.c
+SRCS    	=	push_swap.c ft_checks.c ft_creating.c ft_free.c ops_p.c ops_s.c ops_r.c ops_rr.c sort_small.c
 SRCS_DIR	=	sources/
 SRCS_PATH	=	$(addprefix $(SRCS_DIR), $(SRCS))
 OBJ_SRCS    =	$(SRCS_PATH:.c=.o)
