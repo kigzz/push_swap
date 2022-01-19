@@ -41,18 +41,16 @@ static void	push(t_dlist **src, t_dlist **dst)
 	*dst = tmp;
 }
 
-void pa(t_dlist **a, t_dlist **b, int print)
+void	pa(t_dlist **a, t_dlist **b, int print)
 {
 	push(b, a);
 	if (print)
 		write(1, "pa\n", 3);
 }
 
-void pb(t_dlist **a, t_dlist **b, int print)
+void	pb(t_dlist **a, t_dlist **b, int print)
 {
 	push(a, b);
 	if (print)
 		write(1, "pb\n", 3);
 }
-
-

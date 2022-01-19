@@ -85,6 +85,14 @@ int main (int argc, char *argv[])
 	// Reverse rotate stack
 	// Swap first 2 element stack
 
+//	sa(a_stack, 0);
+//	pb(&a_stack, &b_stack, 0);
+//	sa(a_stack, 0);
+//	pb(&a_stack, &b_stack, 0);
+//	sb(b_stack, 0);
+//	sb(b_stack, 0);
+//	pa(&a_stack, &b_stack, 0);
+	rra(&a_stack, 0);
 	// Print stack A
 	curr = ft_dlstfirst(a_stack);
 	while (curr != NULL)
