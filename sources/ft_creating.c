@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-t_dlist *create_list(int n_cnt, const int *arr)
+t_dlist *create_list(int n_cnt, int *arr)
 {
 	t_dlist *a_stack;
 
@@ -28,7 +28,7 @@ t_dlist *create_list(int n_cnt, const int *arr)
 	return (a_stack);
 }
 
-int *create_array(char *const *nbrs, int n_cnt)
+int *create_array(char **nbrs, int n_cnt)
 {
 	int *arr;
 	int i;

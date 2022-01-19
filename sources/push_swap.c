@@ -1,12 +1,12 @@
 #include "../includes/push_swap.h"
 
-int *create_array(char *const *nbrs, int n_cnt);
+int *create_array(char **nbrs, int n_cnt);
 
 char **parse_args(int argc, char **argv);
 
 int check_numbers(char **nbrs);
 
-t_dlist *create_list(int n_cnt, const int *arr);
+t_dlist *create_list(int n_cnt, int *arr);
 
 int main (int argc, char *argv[])
 {
@@ -132,7 +132,7 @@ int main (int argc, char *argv[])
 	return (0);
 }
 
-t_dlist *create_list(int n_cnt, const int *arr)
+t_dlist *create_list(int n_cnt, int *arr)
 {
 	t_dlist *a_stack;
 
@@ -146,7 +146,6 @@ t_dlist *create_list(int n_cnt, const int *arr)
 		ft_dlstadd_back(&a_stack, ft_dlstnew(arr[i]));
 		i++;
 	}
-	a_stack->size = ft_dlstsize(a_stack);
 	return (a_stack);
 }
 
@@ -193,7 +192,7 @@ char **parse_args(int argc, char **argv)
 	return (nbrs);
 }
 
-int *create_array(char *const *nbrs, int n_cnt)
+int *create_array(char **nbrs, int n_cnt)
 {
 	int *arr;
 	int i;

@@ -22,7 +22,6 @@ typedef struct s_dlist
 	int 			data;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-	int 			size;
 }	t_dlist;
 
 /* libft function */
@@ -50,6 +49,9 @@ int		ft_dlstsize(t_dlist *dlst);
 /* push_swap functions */
 
 int		check_duplicate(int *arr, int n);
+char 	**parse_args(int argc, char **argv);
+int		*create_array(char **nbrs, int n_cnt);
+t_dlist	*create_list(int n_cnt, int *arr);
 void	error(void);
 
 /* ops */

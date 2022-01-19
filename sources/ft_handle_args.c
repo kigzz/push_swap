@@ -12,4 +12,9 @@
 
 #include "../includes/push_swap.h"
 
+int	handle_args(int argc, char **argv)
+{
+	int	n_cnt;
 
+	return (n_cnt);
+}
