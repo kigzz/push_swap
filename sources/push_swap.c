@@ -13,17 +13,9 @@ int main (int argc, char *argv[])
 
 	// Parsing des arguments :
 
-	// 		Faire en sorte que les arguments recus soient une de la forme **char avec ft_split.c
-
 	int i;
 	char **nbrs = parse_args(argc, argv);
 	int n_cnt;
-
-	//	printf("argc = %d\n", argc);
-//	for (i = 0; i < argc - 1; i++)
-//	{
-//		printf("%s ", nbrs[i]);
-//	}
 
 //		Nombre de nbrs
 
@@ -40,8 +32,8 @@ int main (int argc, char *argv[])
 	int *arr = create_array(nbrs, n_cnt);
 	if (arr == NULL)
 		return (1);
-//	for (i = 0; i < n_cnt; i++)
-//		printf("arr %d\n", arr[i]);
+
+	// CHECK
 
 	if (check_duplicate(arr, n_cnt) == 1 || check_numbers(nbrs) == 1)
 	{
@@ -69,6 +61,8 @@ int main (int argc, char *argv[])
 
 	}
 	printf("Taille de Stack A : %d\n", ft_dlstsize(a_stack));
+
+//		TEST OPS
 
 
 	t_dlist *b_stack;

@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_rr.c                                           :+:      :+:    :+:   */
+/*   ft_tabs_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 16:56:08 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/19 16:56:21 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/19 17:38:11 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/19 17:38:25 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rr(t_dlist **a, t_dlist **b, int print)
+t_dlist *create_list(int n_cnt, const int *arr)
 {
-	ra(a, 0);
-	rb(b, 0);
-	if (print)
-		write(1, "rr\n", 3);
+	t_dlist *a_stack;
+
+	a_stack = NULL;
+	int	i;
+
+	i = 0;
+	while (i < n_cnt)
+	{
+		ft_dlstadd_back(&a_stack, ft_dlstnew(arr[i]));
+		i++;
+	}
+	return (a_stack);
 }
 
-void	rrr(t_dlist **a, t_dlist **b, int print)
+int *create_array(char *const *nbrs, int n_cnt)
 {
-	rra(a, 0);
-	rrb(b, 0);
-	if (print)
-		write(1, "rrr\n", 4);
+	int *arr;
+	int i;
+
+	i = -1;
+	arr = malloc(sizeof(int) * n_cnt);
+	if (!arr)
+		return NULL;
+	while (++i < n_cnt)
+		arr[i] = ft_atoi(nbrs[i]);
+	return (arr);
 }
+
