@@ -12,14 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-t_dlist *create_list(int n_cnt, int *arr)
+t_dlist	*create_list(int n_cnt, int *arr)
 {
-	t_dlist *a_stack;
-
-	a_stack = NULL;
-	int	i;
+	t_dlist	*a_stack;
+	int		i;
 
 	i = 0;
+	a_stack = NULL;
 	while (i < n_cnt)
 	{
 		ft_dlstadd_back(&a_stack, ft_dlstnew(arr[i]));
@@ -28,17 +27,16 @@ t_dlist *create_list(int n_cnt, int *arr)
 	return (a_stack);
 }
 
-int *create_array(char **nbrs, int n_cnt)
+int	*create_array(char **nbrs, int n_cnt)
 {
-	int *arr;
-	int i;
+	int	*arr;
+	int	i;
 
 	i = -1;
 	arr = malloc(sizeof(int) * n_cnt);
 	if (!arr)
-		return NULL;
+		return (NULL);
 	while (++i < n_cnt)
 		arr[i] = ft_atoi(nbrs[i]);
 	return (arr);
 }
-

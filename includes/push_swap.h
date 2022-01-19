@@ -19,7 +19,7 @@
 
 typedef struct s_dlist
 {
-	int 			data;
+	int				data;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }	t_dlist;
@@ -46,10 +46,15 @@ t_dlist	*ft_dlstlast(t_dlist *dlst);
 t_dlist	*ft_dlstnew(int data);
 int		ft_dlstsize(t_dlist *dlst);
 
+/* free functions */
+
+void	free_split(char **nbrs);
+void	free_tab(t_dlist **dlst);
+
 /* push_swap functions */
 
-int		check_duplicate(int *arr, int n);
-char 	**parse_args(int argc, char **argv);
+int		check_input(int argc, char **argv, int **arr);
+char	**parse_args(int argc, char **argv);
 int		*create_array(char **nbrs, int n_cnt);
 t_dlist	*create_list(int n_cnt, int *arr);
 void	error(void);
@@ -66,8 +71,5 @@ void	rra(t_dlist **dlst, int print);
 void	rrb(t_dlist **dlst, int print);
 void	rr(t_dlist **a, t_dlist **b, int print);
 void	rrr(t_dlist **a, t_dlist **b, int print);
-
-
-
 
 #endif

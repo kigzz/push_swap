@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	check_duplicate(int *arr, int n)
+static int	check_duplicate(int *arr, int n)
 {
 	int	i;
 	int	j;
@@ -30,4 +30,68 @@ int	check_duplicate(int *arr, int n)
 		i++;
 	}
 	return (0);
+}
+
+static int	check_numbers(char **nbrs)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (nbrs[++i])
+	{
+		j = -1;
+		if (nbrs[i][0] == '-' || nbrs[i][0] == '+')
+			j++;
+		while (nbrs[i][++j])
+		{
+			if (ft_isdigit(nbrs[i]) == 0)
+				return (1);
+		}
+	}
+	return (0);
+}
+
+char	**parse_args(int argc, char **argv)
+{
+	char	**nbrs;
+	int		i;
+	char	*av_str;
+	char	*tmp;
+
+	i = 0;
+	av_str = ft_strdup("");
+	while (++i < argc)
+	{
+		tmp = ft_strjoin(av_str, argv[i]);
+		free(av_str);
+		av_str = tmp;
+		tmp = ft_strjoin(av_str, " ");
+		free(av_str);
+		av_str = tmp;
+	}
+	nbrs = ft_split(av_str, ' ');
+	free(av_str);
+	return (nbrs);
+}
+
+int	check_input(int argc, char **argv, int **array)
+{
+	char	**nbrs;
+	int		n_cnt;
+	int		i;
+
+	nbrs = parse_args(argc, argv);
+	i = -1;
+	n_cnt = 0;
+	while (nbrs[++i])
+		n_cnt++;
+	*array = create_array(nbrs, n_cnt);
+	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0)
+	{
+		n_cnt = -1;
+		ft_putstr_fd("Error\n", 1);
+	}
+	free_split(nbrs);
+	return (n_cnt);
 }

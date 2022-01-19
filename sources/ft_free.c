@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_args.c                                   :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 17:34:18 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/01/19 17:34:30 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/01/19 20:12:23 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/19 20:12:35 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	handle_args(int argc, char **argv)
+void	free_split(char **nbrs)
 {
-	int	n_cnt;
+	int	i;
 
-	return (n_cnt);
+	i = -1;
+	while (nbrs[++i])
+		free(nbrs[i]);
+	free(nbrs);
+}
+
+void	free_tab(t_dlist **dlst)
+{
+	t_dlist	*tmp;
+
+	if (dlst == NULL)
+		return ;
+	tmp = *dlst;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		free(tmp->prev);
+	}
+	free(tmp);
 }
