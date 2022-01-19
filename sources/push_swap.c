@@ -85,7 +85,6 @@ int main (int argc, char *argv[])
 	// Reverse rotate stack
 	// Swap first 2 element stack
 
-
 	// Print stack A
 	curr = ft_dlstfirst(a_stack);
 	while (curr != NULL)
@@ -94,13 +93,6 @@ int main (int argc, char *argv[])
 		curr = curr->next;
 
 	}
-//	curr = ft_dlstlast(a_stack);
-//	while (curr != NULL)
-//	{
-//		printf("Stack A après swap PREV : %d\n", curr->data);
-//		curr = curr->prev;
-//
-//	}
 
 	curr = b_stack;
 	while (curr)

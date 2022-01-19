@@ -56,8 +56,10 @@ void	error(void);
 
 /* ops */
 
-void pb(t_dlist **a, t_dlist **b, int print);
-void pa(t_dlist **a, t_dlist **b, int print);
+void	pb(t_dlist **a, t_dlist **b, int print);
+void	pa(t_dlist **a, t_dlist **b, int print);
+void	sa(t_dlist *a, int print);
+void	sb(t_dlist *a, int print);
 
 
 #endif
