@@ -61,8 +61,8 @@ t_dlst	*create_list(int n_cnt, int *arr);
 
 void	pb(t_dlst **a, t_dlst **b, int print);
 void	pa(t_dlst **a, t_dlst **b, int print);
-void	sa(t_dlst **a, int print);
-void	sb(t_dlst **a, int print);
+void	sa(t_dlst *a, int print);
+void	sb(t_dlst *a, int print);
 void	ra(t_dlst **dlst, int print);
 void	rb(t_dlst **dlst, int print);
 void	rra(t_dlst **dlst, int print);

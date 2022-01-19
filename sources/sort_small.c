@@ -22,17 +22,17 @@ void	sort_3(t_dlst **dlst)
 	for (int i = 0; i < 3; i++)
 		printf("%d\n", arr[i]);
 	if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] > arr[0])
-		sa(dlst, 1);
+		sa(*dlst, 1);
 	else if (arr[0] > arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
 	{
-		sa(dlst, 1);
+		sa(*dlst, 1);
 		rra(dlst, 1);
 	}
 	else if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] < arr[0])
 		ra(dlst, 1);
 	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] > arr[0])
 	{
-		sa(dlst, 1);
+		sa(*dlst, 1);
 		ra(dlst, 1);
 	}
 	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] < arr[0])

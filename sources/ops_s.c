@@ -12,28 +12,27 @@
 
 #include "../includes/push_swap.h"
 
-static void	swap(t_dlst **dlst)
+static void	swap(t_dlst *dlst)
 {
-	t_dlst	*tmp;
+	t_dlst	tmp;
 
-	tmp = NULL;
-	if (ft_dlstsize(*dlst) < 2)
+	if (ft_dlstsize(dlst) < 2)
 		return ;
-	tmp->data = ((*dlst)->next)->data;
-	((*dlst)->next)->data = (*dlst)->data;
-	(*dlst)->data = tmp->data;
+	tmp.data = (dlst->next)->data;
+	(dlst->next)->data = dlst->data;
+	dlst->data = tmp.data;
 }
 
-void	sa(t_dlst **a, int print)
+void	sa(t_dlst *a, int print)
 {
 	swap(a);
 	if (print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_dlst **b, int print)
+void	sb(t_dlst *a, int print)
 {
-	swap(b);
+	swap(a);
 	if (print)
 		write(1, "sb\n", 3);
 }
