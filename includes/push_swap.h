@@ -49,9 +49,7 @@ int		ft_dlstsize(t_dlist *dlst);
 
 /* push_swap functions */
 
-void	ft_sort(int *arr, int n);
 int		check_duplicate(int *arr, int n);
-void	check_input(int argc, char *argv[]);
 void	error(void);
 
 /* ops */
@@ -60,6 +58,14 @@ void	pb(t_dlist **a, t_dlist **b, int print);
 void	pa(t_dlist **a, t_dlist **b, int print);
 void	sa(t_dlist *a, int print);
 void	sb(t_dlist *a, int print);
+void	ra(t_dlist **dlst, int print);
+void	rb(t_dlist **dlst, int print);
+void	rra(t_dlist **dlst, int print);
+void	rrb(t_dlist **dlst, int print);
+void	rr(t_dlist **a, t_dlist **b, int print);
+void	rrr(t_dlist **a, t_dlist **b, int print);
+
+
 
 
 #endif
