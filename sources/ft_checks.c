@@ -90,7 +90,10 @@ int	check_input(int argc, char **argv, int **array)
 	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0)
 	{
 		n_cnt = -1;
+		free(*array);
+		free_split(nbrs);
 		ft_putstr_fd("Error\n", 1);
+		return (n_cnt);
 	}
 	free_split(nbrs);
 	return (n_cnt);

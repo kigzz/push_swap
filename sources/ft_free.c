@@ -26,7 +26,7 @@ void	free_tab(t_dlist **dlst)
 {
 	t_dlist	*tmp;
 
-	if (dlst == NULL)
+	if (*dlst == NULL)
 		return ;
 	tmp = *dlst;
 	while (tmp->next != NULL)

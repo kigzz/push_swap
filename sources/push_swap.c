@@ -1,25 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 21:06:26 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/01/19 21:06:28 by bpouchep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	main(int argc, char *argv[])
 {
-
-	// Parsing des arguments :
-
 	int		n_cnt;
-	t_dlist	*a_stack;
 	int		*arr;
+	t_dlist	*a_stack;
 
-
-//		Nombre de nbrs
-
+	if (argc == 1)
+		return (0);
 	n_cnt = check_input(argc, argv, &arr);
 	if (n_cnt < 0 || arr == NULL)
-	{
-		free(arr);
 		return (1);
-	}
-
-	// CHECK
 
 	//			Initialisation de la liste chainée
 
@@ -55,15 +58,15 @@ int	main(int argc, char *argv[])
 	pb(&a_stack, &b_stack, 0);
 	pb(&a_stack, &b_stack, 0);
 	pb(&a_stack, &b_stack, 0);
+//	pa(&a_stack, &b_stack, 0);
+
+	sb(b_stack, 0);
 	rrr(&a_stack, &b_stack, 0);
-	pa(&a_stack, &b_stack, 0);
-	pa(&a_stack, &b_stack, 0);
-	pa(&a_stack, &b_stack, 0);
 	// Print stack A
 	curr = ft_dlstfirst(a_stack);
 	while (curr != NULL)
 	{
-		printf("Stack A après OPS : %d\n", curr->data);
+		printf("A après OPS : %d\n", curr->data);
 		curr = curr->next;
 
 	}
@@ -71,11 +74,12 @@ int	main(int argc, char *argv[])
 	curr = b_stack;
 	while (curr)
 	{
-		printf("Stack B après OPS : %d\n", curr->data);
+		printf("- B après OPS : %d\n", curr->data);
 		curr = curr->next;
 	}
 	//		Leaks
 
 	free_tab(&a_stack);
+	free_tab(&b_stack);
 	return (0);
 }

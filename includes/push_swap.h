@@ -30,7 +30,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *str);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_atoi(const char *str);
 void	ft_putchar_fd(char c, int fd);
@@ -57,7 +56,6 @@ int		check_input(int argc, char **argv, int **arr);
 char	**parse_args(int argc, char **argv);
 int		*create_array(char **nbrs, int n_cnt);
 t_dlist	*create_list(int n_cnt, int *arr);
-void	error(void);
 
 /* ops */
 
