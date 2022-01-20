@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *flags)
 {
 	long	result;
 	int		i;
@@ -34,9 +34,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	if (result * sign > 2147483647 || result * sign < -2147483648)
-	{
-		write(2, "Error Atoi\n", 11);
-		exit (1);
-	}
+		*flags = 1;
 	return (result * sign);
 }

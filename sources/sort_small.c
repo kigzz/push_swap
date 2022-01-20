@@ -12,15 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-void	sort_3(t_dlst **dlst)
+static void	sort_3(t_dlst **dlst)
 {
 	int	arr[3];
 
 	arr[0] = (*dlst)->data;
 	arr[1] = (*dlst)->next->data;
 	arr[2] = (*dlst)->next->next->data;
-	for (int i = 0; i < 3; i++)
-		printf("%d\n", arr[i]);
 	if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] > arr[0])
 		sa(*dlst, 1);
 	else if (arr[0] > arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
@@ -39,7 +37,27 @@ void	sort_3(t_dlst **dlst)
 		rra(dlst, 1);
 }
 
-//void sort_5(t_dlst **dlst)
-//{
-//
-//}
+static void	sort_5(t_dlst **a, t_dlst **b, int n_cnt)
+{
+	if (n_cnt == 5)
+		pb(a, b, 1);
+	pb(a, b, 1);
+	sort_3(a);
+	if (n_cnt == 5)
+		smart_push(a, b);
+	smart_push(a, b);
+	sort_a(a);
+}
+
+void	sort_small(t_dlst **a, t_dlst **b, int n_cnt)
+{
+	if (ft_dlstsize(*a) == 2)
+	{
+		if ((*a)->data > (*a)->next->data)
+			sa(*a, 1);
+	}
+	else if (ft_dlstsize(*a) == 3)
+		sort_3(a);
+	else
+		sort_5(a, b, n_cnt);
+}

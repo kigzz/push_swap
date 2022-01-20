@@ -39,33 +39,15 @@ int	main(int argc, char *argv[])
 	}
 	printf("Taille de Stack A : %d\n", ft_dlstsize(a_stack));
 
-//		TEST OPS
-
-
 	t_dlst *b_stack;
 	b_stack = NULL;
 
 	printf("first %d - last %d\n", ft_dlstfirst(a_stack)->data, ft_dlstlast(a_stack)->data);
 
-	//	sa(a_stack, 0);
-//	pb(&a_stack, &b_stack, 0);
-//	sa(a_stack, 0);
-//	pb(&a_stack, &b_stack, 0);
-//	sb(b_stack, 0);
-//	sb(b_stack, 0);
-//	pa(&a_stack, &b_stack, 0);
-//	pb(&a_stack, &b_stack, 0);
-//	pb(&a_stack, &b_stack, 0);
-//	pb(&a_stack, &b_stack, 0);
-////	pa(&a_stack, &b_stack, 0);
-//
-//	sb(b_stack, 0);
-//	rrr(&a_stack, &b_stack, 0);
-//
+	//		Leaks
 
-	// Print stack A
-
-	sort_3(&a_stack);
+	free(arr);
+	handle_sort(&a_stack, &b_stack, n_cnt);		// b_stack à rajouter en paramètre pour sort big
 
 	curr = a_stack;
 	while (curr != NULL)
@@ -74,14 +56,12 @@ int	main(int argc, char *argv[])
 		curr = curr->next;
 	}
 	curr = b_stack;
-//	while (curr)
-//	{
-//		printf("- B après OPS : %d\n", curr->data);
-//		curr = curr->next;
-//	}
-	//		Leaks
+	while (curr)
+	{
+		printf("- B après OPS : %d\n", curr->data);
+		curr = curr->next;
+	}
 
-	free(arr);
 	free_tab(&a_stack);
 	free_tab(&b_stack);
 	return (0);

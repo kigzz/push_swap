@@ -17,6 +17,8 @@ static int	check_duplicate(int *arr, int n)
 	int	i;
 	int	j;
 
+	if (arr == NULL)
+		return (1);
 	i = 0;
 	while (i < n)
 	{
@@ -87,7 +89,8 @@ int	check_input(int argc, char **argv, int **array)
 	while (nbrs[++i])
 		n_cnt++;
 	*array = create_array(nbrs, n_cnt);
-	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0)
+	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0
+		|| array == NULL)
 	{
 		n_cnt = -1;
 		free(*array);

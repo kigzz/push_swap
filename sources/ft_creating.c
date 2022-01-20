@@ -31,12 +31,21 @@ int	*create_array(char **nbrs, int n_cnt)
 {
 	int	*arr;
 	int	i;
+	int	flag_min_max;
 
 	i = -1;
+	flag_min_max = 0;
 	arr = malloc(sizeof(int) * n_cnt);
 	if (!arr)
 		return (NULL);
 	while (++i < n_cnt)
-		arr[i] = ft_atoi(nbrs[i]);
+	{
+		arr[i] = ft_atoi(nbrs[i], &flag_min_max);
+	}
+	if (flag_min_max == 1)
+	{
+		free(arr);
+		return (NULL);
+	}
 	return (arr);
 }

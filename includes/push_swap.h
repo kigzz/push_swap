@@ -31,7 +31,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, int *flags);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_isdigit(const char *str);
@@ -72,6 +72,9 @@ void	rrr(t_dlst **a, t_dlst **b, int print);
 
 /* sort */
 
-void	sort_3(t_dlst **dlst);
+void	handle_sort(t_dlst **a, t_dlst **b, int n_cnt);
+void	sort_a(t_dlst **a);
+void	smart_push(t_dlst **a, t_dlst **b);
+void	sort_small(t_dlst **a, t_dlst **b, int n_cnt);
 
 #endif
