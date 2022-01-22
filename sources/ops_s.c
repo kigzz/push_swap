@@ -36,3 +36,11 @@ void	sb(t_dlst *a, int print)
 	if (print)
 		write(1, "sb\n", 3);
 }
+
+void 	ss(t_dlst *a, t_dlst *b, int print)
+{
+	swap(a);
+	swap(b);
+	if (print)
+		write (1, "ss\n", 3);
+}

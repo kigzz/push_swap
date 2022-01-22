@@ -16,13 +16,24 @@ t_dlst	*create_list(int n_cnt, int *arr)
 {
 	t_dlst	*a_stack;
 	int		i;
+	int 	j;
+	int		tmp;
+	int		cnt;
 
-	i = 0;
+	i = -1;
 	a_stack = NULL;
-	while (i < n_cnt)
+
+	while (++i < n_cnt)
 	{
-		ft_dlstadd_back(&a_stack, ft_dlstnew(arr[i]));
-		i++;
+		{
+			cnt = 0;
+			j = -1;
+			while (++j < n_cnt)
+				if (j != i && arr[j] < arr[i])
+					cnt++;
+			tmp = cnt;
+			ft_dlstadd_back(&a_stack, ft_dlstnew(tmp));
+		}
 	}
 	return (a_stack);
 }

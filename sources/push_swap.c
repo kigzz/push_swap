@@ -23,44 +23,44 @@ int	main(int argc, char *argv[])
 	n_cnt = check_input(argc, argv, &arr);
 	if (n_cnt < 0 || arr == NULL)
 		return (1);
-
+	printf("argc = %d\n", argc - 1);
 	//			Initialisation de la liste chainée
 
 	a_stack = create_list(n_cnt, arr);
 
 				// TEST TEST
 
-	t_dlst *curr = a_stack;
-	while (curr != NULL)
-	{
-		printf("Init Stack A : %d\n", curr->data);
-		curr = curr->next;
-
-	}
-	printf("Taille de Stack A : %d\n", ft_dlstsize(a_stack));
-
+//	t_dlst *curr = a_stack;
+//	while (curr != NULL)
+//	{
+//		printf("Init Stack A : %d\n", curr->data);
+//		curr = curr->next;
+//
+//	}
+//	printf("Taille de Stack A : %d\n", ft_dlstsize(a_stack));
+//
 	t_dlst *b_stack;
 	b_stack = NULL;
-
-	printf("first %d - last %d\n", ft_dlstfirst(a_stack)->data, ft_dlstlast(a_stack)->data);
+//
+//	printf("first %d - last %d\n", ft_dlstfirst(a_stack)->data, ft_dlstlast(a_stack)->data);
 
 	//		Leaks
 
 	free(arr);
 	handle_sort(&a_stack, &b_stack, n_cnt);		// b_stack à rajouter en paramètre pour sort big
 
-	curr = a_stack;
-	while (curr != NULL)
-	{
-		printf("A après OPS : %d\n", curr->data);
-		curr = curr->next;
-	}
-	curr = b_stack;
-	while (curr)
-	{
-		printf("- B après OPS : %d\n", curr->data);
-		curr = curr->next;
-	}
+//	curr = a_stack;
+//	while (curr != NULL)
+//	{
+//		printf("A après OPS : %d\n", curr->data);
+//		curr = curr->next;
+//	}
+//	curr = b_stack;
+//	while (curr)
+//	{
+//		printf("- B après OPS : %d\n", curr->data);
+//		curr = curr->next;
+//	}
 
 	free_tab(&a_stack);
 	free_tab(&b_stack);

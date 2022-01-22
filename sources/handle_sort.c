@@ -29,6 +29,6 @@ void	handle_sort(t_dlst **a, t_dlst **b, int n_cnt)
 		return ;
 	if (n_cnt <= 5)
 		sort_small(a, b, n_cnt);
-//	else
-//		sort_big(a, b, n_cnt);
+	else
+		sort_big(a, b, n_cnt);
 }
