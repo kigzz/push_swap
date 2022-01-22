@@ -1,5 +1,6 @@
 
 #SETUP
+
 NAME			=	push_swap
 CHECKER_NAME	=	checker
 CC				=	gcc
@@ -22,7 +23,6 @@ FUNC_SRCS	=	ft_strdup.c ft_split.c ft_memcpy.c ft_strlen.c ft_atoi.c ft_isdigit.
 FUNC_DIR	=	functions/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)
-
 
 #COMMANDS
 
