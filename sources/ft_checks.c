@@ -45,9 +45,11 @@ static int	check_numbers(char **nbrs)
 		j = -1;
 		if (nbrs[i][0] == '-' || nbrs[i][0] == '+')
 			j++;
+		if (!ft_isdigit(nbrs[i][j + 1]))
+			return (1);
 		while (nbrs[i][++j])
 		{
-			if (ft_isdigit(nbrs[i]) == 0)
+			if (!ft_isdigit(nbrs[i][j]))
 				return (1);
 		}
 	}
@@ -90,12 +92,12 @@ int	check_input(int argc, char **argv, int **array)
 		n_cnt++;
 	*array = create_array(nbrs, n_cnt);
 	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0
-		|| array == NULL)
+		|| *array == NULL)
 	{
 		n_cnt = -1;
 		free(*array);
 		free_split(nbrs);
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error\n", 2);
 		return (n_cnt);
 	}
 	free_split(nbrs);

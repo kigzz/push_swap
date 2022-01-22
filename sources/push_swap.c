@@ -47,20 +47,6 @@ int	main(int argc, char *argv[])
 
 	free(arr);
 	handle_sort(&a_stack, &b_stack, n_cnt);		// b_stack à rajouter en paramètre pour sort big
-
-	t_dlst *curr = a_stack;
-	while (curr != NULL)
-	{
-		printf("A après OPS : %d\n", curr->data);
-		curr = curr->next;
-	}
-	curr = b_stack;
-	while (curr)
-	{
-		printf("- B après OPS : %d\n", curr->data);
-		curr = curr->next;
-	}
-
 	free_tab(&a_stack);
 	free_tab(&b_stack);
 	return (0);

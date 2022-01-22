@@ -12,16 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(const char *str)
+int	ft_isdigit(char c)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	return (c >= '0' && c <= '9');
 }

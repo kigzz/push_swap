@@ -34,7 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_atoi(const char *str, int *flags);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int		ft_isdigit(const char *str);
+int		ft_isdigit(char c);
 
 /* double link list functions */
 
