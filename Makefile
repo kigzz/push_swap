@@ -1,18 +1,18 @@
 
 #SETUP
-NAME		=	push_swap
-CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -rf
+NAME			=	push_swap
+CHECKER_NAME	=	checker
+CC				=	gcc
+FLAGS			=	-Wall -Wextra -Werror
+RM				=	rm -rf
 
 #FILES AND PATH
-HEADER_SRCS	=	push_swap.h
 
-SRCS    	=	push_swap.c ft_checks.c ft_creating.c ft_free.c ops_p.c ops_s.c ops_r.c ops_rr.c sort_small.c \
+SRCS    		=	push_swap.c ft_checks.c ft_creating.c ft_free.c ops_p.c ops_s.c ops_r.c ops_rr.c sort_small.c \
 				handle_sort.c sort_small_utils.c sort_big.c sort_big_utils.c
-SRCS_DIR	=	sources/
-SRCS_PATH	=	$(addprefix $(SRCS_DIR), $(SRCS))
-OBJ_SRCS    =	$(SRCS_PATH:.c=.o)
+SRCS_DIR		=	sources/
+SRCS_PATH		=	$(addprefix $(SRCS_DIR), $(SRCS))
+OBJ_SRCS    	=	$(SRCS_PATH:%.c=%.o)
 
 #FUNCTIONS
 
@@ -25,6 +25,7 @@ OBJ_F		=	$(FUNC:.c=.o)
 
 
 #COMMANDS
+
 %.o : %.c
 				@${CC} ${FLAGS} -c $< -o $@
 
@@ -34,7 +35,6 @@ $(NAME):		$(OBJ_F) $(OBJ_SRCS)
 				@$(CC) $(FLAGS) $(OBJ_F) $(OBJ_SRCS) -o $(NAME)
 				@echo "$(NAME) created!"
 
-
 clean:
 				@$(RM) $(OBJ_SRCS)
 				@$(RM) $(OBJ_F)
@@ -42,6 +42,7 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
+				@$(RM) $(CHECKER_NAME)
 				@echo "all deleted!"
 
 re:				fclean all

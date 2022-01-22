@@ -14,14 +14,14 @@
 
 t_dlst	*create_list(int n_cnt, int *arr)
 {
-	t_dlst	*a_stack;
+	t_dlst	*dlst;
 	int		i;
 	int		j;
 	int		tmp;
 	int		cnt;
 
 	i = -1;
-	a_stack = NULL;
+	dlst = NULL;
 	while (++i < n_cnt)
 	{
 		{
@@ -31,10 +31,10 @@ t_dlst	*create_list(int n_cnt, int *arr)
 				if (j != i && arr[j] < arr[i])
 					cnt++;
 			tmp = cnt;
-			ft_dlstadd_back(&a_stack, ft_dlstnew(tmp));
+			ft_dlstadd_back(&dlst, ft_dlstnew(tmp));
 		}
 	}
-	return (a_stack);
+	return (dlst);
 }
 
 int	*create_array(char **nbrs, int n_cnt)
