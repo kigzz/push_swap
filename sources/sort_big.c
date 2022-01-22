@@ -24,6 +24,8 @@ static void	push_in_chunks(t_dlst **a, t_dlst **b, int chunk_sz, int size)
 		if ((*a)->data < (chunk_sz * chunk_n))
 		{
 			pb(a, b, 1);
+			if ((*b)->data < (chunk_sz * chunk_n - chunk_sz / 2))
+				rb(b, 1);
 			cnt++;
 			size--;
 		}
@@ -36,25 +38,20 @@ static void	push_in_chunks(t_dlst **a, t_dlst **b, int chunk_sz, int size)
 
 static void	push_back_chunks(t_dlst **a, t_dlst **b)
 {
-	int b_size;
-
-	b_size = ft_dlstsize(*b);
-	while (*b)
+	while (ft_dlstsize(*b))
 	{
 		if (smart_rotate_b(a, b))
 		{
 			pa(a, b, 1);
-//			if (b_size > 1 && (*b)->data < (*b)->next->data)
-//				ss(*a, *b, 1);
-//			else
-//				sa(*a, 1);
+			if (ft_dlstsize(*b) > 1 && (*b)->data < (*b)->next->data)
+				ss(a, b, 1);
+			else
+				sa(a, 1);
 		}
 		else
 			pa(a, b, 1);
-		b_size--;
 	}
 }
-
 
 void	sort_big(t_dlst **a, t_dlst **b, int size)
 {

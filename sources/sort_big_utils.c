@@ -14,10 +14,7 @@
 
 static int	try_push_next(t_dlst **a, t_dlst **b, int swap)
 {
-	int	b_size;
-
-	b_size = ft_dlstsize(*b);
-	if ((*b)->data == b_size - 2 && !swap)
+	if ((*b)->data == ft_dlstsize(*b) - 2 && !swap)
 	{
 		pa(a, b, 1);
 		return (1);
@@ -34,8 +31,8 @@ int	smart_rotate_b(t_dlst **a, t_dlst **b)
 
 	move_cnt = 0;
 	swap = 0;
-	b_size = ft_dlstsize(*b);
 	tmp = *b;
+	b_size = ft_dlstsize(*b);
 	while (tmp->data != b_size - 1 && ++move_cnt)
 		tmp = tmp->next;
 	while ((*b)->data != b_size - 1)
@@ -49,6 +46,6 @@ int	smart_rotate_b(t_dlst **a, t_dlst **b)
 		}
 		else
 			swap = 1;
-		}
+	}
 	return (swap);
 }

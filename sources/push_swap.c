@@ -23,7 +23,6 @@ int	main(int argc, char *argv[])
 	n_cnt = check_input(argc, argv, &arr);
 	if (n_cnt < 0 || arr == NULL)
 		return (1);
-	printf("argc = %d\n", argc - 1);
 	//			Initialisation de la liste chainée
 
 	a_stack = create_list(n_cnt, arr);
@@ -49,18 +48,18 @@ int	main(int argc, char *argv[])
 	free(arr);
 	handle_sort(&a_stack, &b_stack, n_cnt);		// b_stack à rajouter en paramètre pour sort big
 
-//	curr = a_stack;
-//	while (curr != NULL)
-//	{
-//		printf("A après OPS : %d\n", curr->data);
-//		curr = curr->next;
-//	}
-//	curr = b_stack;
-//	while (curr)
-//	{
-//		printf("- B après OPS : %d\n", curr->data);
-//		curr = curr->next;
-//	}
+	t_dlst *curr = a_stack;
+	while (curr != NULL)
+	{
+		printf("A après OPS : %d\n", curr->data);
+		curr = curr->next;
+	}
+	curr = b_stack;
+	while (curr)
+	{
+		printf("- B après OPS : %d\n", curr->data);
+		curr = curr->next;
+	}
 
 	free_tab(&a_stack);
 	free_tab(&b_stack);

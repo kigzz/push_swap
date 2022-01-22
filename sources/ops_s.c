@@ -12,40 +12,52 @@
 
 #include "../includes/push_swap.h"
 
-static int	swap(t_dlst *dlst)
+static void	swap(t_dlst **dlst)
 {
-	t_dlst	tmp;
+	int	sz;
 
-	if (dlst)
-		return (1);
-	if (ft_dlstsize(dlst) < 2)
-		return (1);
-	tmp.data = (dlst->next)->data;
-	(dlst->next)->data = dlst->data;
-	dlst->data = tmp.data;
-	return (0);
+	sz = ft_dlstsize(*dlst);
+	if (!*dlst)
+		return ;
+	if (sz < 2)
+		return ;
+	if (sz == 2)
+	{
+		(*dlst)->next->next = *dlst;
+		*dlst = (*dlst)->next;
+		(*dlst)->next->next = NULL;
+		(*dlst)->prev = NULL;
+		(*dlst)->next->prev = *dlst;
+	}
+	else
+	{
+		(*dlst)->next = (*dlst)->next->next;
+		(*dlst)->next->prev->next = *dlst;
+		(*dlst)->prev = (*dlst)->next->prev;
+		(*dlst)->next->prev->prev = NULL;
+		(*dlst)->next->prev = *dlst;
+		*dlst = (*dlst)->prev;
+	}
 }
 
-void	sa(t_dlst *a, int print)
+void	sa(t_dlst **a, int print)
 {
-	if (swap(a))
-		return ;
+	swap(a);
 	if (print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_dlst *a, int print)
+void	sb(t_dlst **b, int print)
 {
-	if (swap(a))
-		return ;
+	swap(b);
 	if (print)
 		write(1, "sb\n", 3);
 }
 
-void 	ss(t_dlst *a, t_dlst *b, int print)
+void	ss(t_dlst **a, t_dlst **b, int print)
 {
-	if (swap(a) || swap(b))
-		return ;
+	swap(a);
+	swap(b);
 	if (print)
 		write (1, "ss\n", 3);
 }

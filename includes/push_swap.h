@@ -61,16 +61,15 @@ t_dlst	*create_list(int n_cnt, int *arr);
 
 void	pb(t_dlst **a, t_dlst **b, int print);
 void	pa(t_dlst **a, t_dlst **b, int print);
-void	sa(t_dlst *a, int print);
-void	sb(t_dlst *a, int print);
-void 	ss(t_dlst *a, t_dlst *b, int print);
+void	sa(t_dlst **a, int print);
+void	sb(t_dlst **a, int print);
+void	ss(t_dlst **a, t_dlst **b, int print);
 void	ra(t_dlst **dlst, int print);
 void	rb(t_dlst **dlst, int print);
 void	rra(t_dlst **dlst, int print);
 void	rrb(t_dlst **dlst, int print);
 void	rr(t_dlst **a, t_dlst **b, int print);
 void	rrr(t_dlst **a, t_dlst **b, int print);
-
 
 /* sort */
 
@@ -80,7 +79,5 @@ void	smart_push(t_dlst **a, t_dlst **b);
 void	sort_small(t_dlst **a, t_dlst **b, int n_cnt);
 int		smart_rotate_b(t_dlst **a, t_dlst **b);
 void	sort_big(t_dlst **a, t_dlst **b, int size);
-
-
 
 #endif

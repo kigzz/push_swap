@@ -20,17 +20,17 @@ static void	sort_3(t_dlst **dlst)
 	arr[1] = (*dlst)->next->data;
 	arr[2] = (*dlst)->next->next->data;
 	if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] > arr[0])
-		sa(*dlst, 1);
+		sa(dlst, 1);
 	else if (arr[0] > arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
 	{
-		sa(*dlst, 1);
+		sa(dlst, 1);
 		rra(dlst, 1);
 	}
 	else if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] < arr[0])
 		ra(dlst, 1);
 	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] > arr[0])
 	{
-		sa(*dlst, 1);
+		sa(dlst, 1);
 		ra(dlst, 1);
 	}
 	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
@@ -54,7 +54,7 @@ void	sort_small(t_dlst **a, t_dlst **b, int n_cnt)
 	if (ft_dlstsize(*a) == 2)
 	{
 		if ((*a)->data > (*a)->next->data)
-			sa(*a, 1);
+			sa(a, 1);
 	}
 	else if (ft_dlstsize(*a) == 3)
 		sort_3(a);
