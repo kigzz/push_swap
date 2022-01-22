@@ -42,7 +42,6 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
-				@$(RM) $(CHECKER_NAME)
 				@echo "all deleted!"
 
 re:				fclean all
