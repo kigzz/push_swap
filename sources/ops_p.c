@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static void	push(t_dlst **src, t_dlst **dst)
+static int	push(t_dlst **src, t_dlst **dst)
 {
 	t_dlst	*tmp;
 	int		src_sz;
@@ -20,9 +20,9 @@ static void	push(t_dlst **src, t_dlst **dst)
 	tmp = ft_dlstfirst(*src);
 	src_sz = ft_dlstsize(*src);
 	if (!*src)
-		return ;
+		return (1);
 	if (src_sz < 1)
-		return ;
+		return (1);
 	if (*dst == NULL)
 	{
 		*src = (*src)->next;
@@ -39,18 +39,21 @@ static void	push(t_dlst **src, t_dlst **dst)
 		(*dst)->prev = tmp;
 	}
 	*dst = tmp;
+	return (0);
 }
 
 void	pa(t_dlst **a, t_dlst **b, int print)
 {
-	push(b, a);
+	if (push(b, a))
+		return ;
 	if (print)
 		write(1, "pa\n", 3);
 }
 
 void	pb(t_dlst **a, t_dlst **b, int print)
 {
-	push(a, b);
+	if (push(a, b))
+		return ;
 	if (print)
 		write(1, "pb\n", 3);
 }

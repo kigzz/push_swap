@@ -44,10 +44,10 @@ static void	push_back_chunks(t_dlst **a, t_dlst **b)
 		if (smart_rotate_b(a, b))
 		{
 			pa(a, b, 1);
-			if (b_size > 1 && (*b)->data < (*b)->next->data)
-				ss(*a, *b, 1);
-			else
-				sa(*a, 1);
+//			if (b_size > 1 && (*b)->data < (*b)->next->data)
+//				ss(*a, *b, 1);
+//			else
+//				sa(*a, 1);
 		}
 		else
 			pa(a, b, 1);

@@ -36,22 +36,19 @@ int	smart_rotate_b(t_dlst **a, t_dlst **b)
 	swap = 0;
 	b_size = ft_dlstsize(*b);
 	tmp = *b;
-	if ((*b))
+	while (tmp->data != b_size - 1 && ++move_cnt)
+		tmp = tmp->next;
+	while ((*b)->data != b_size - 1)
 	{
-		while (tmp->data != b_size - 1 && ++move_cnt)
-			tmp = tmp->next;
-		while ((*b)->data != b_size - 1)
+		if (!try_push_next(a, b, swap))
 		{
-			if (!try_push_next(a, b, swap))
-			{
-				if (move_cnt > b_size / 2)
-					rrb(b, 1);
-				else
-					rb(b, 1);
-			}
+			if (move_cnt > b_size / 2)
+				rrb(b, 1);
 			else
-				swap = 1;
+				rb(b, 1);
 		}
-	}
+		else
+			swap = 1;
+		}
 	return (swap);
 }
