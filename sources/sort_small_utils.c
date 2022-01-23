@@ -70,9 +70,13 @@ static int	get_ins_pos(t_dlst *a, int data)
 void	smart_push(t_dlst **a, t_dlst **b)
 {
 	if (is_min_or_max(*a, *b, 1))
+	{
+		sort_a(a);
 		pa(a, b, 1);
+	}
 	else if (is_min_or_max(*a, *b, 0))
 	{
+		sort_a(a);
 		pa(a, b, 1);
 		ra(a, 1);
 	}
