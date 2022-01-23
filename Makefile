@@ -25,9 +25,6 @@ OBJ_F			=	$(FUNC:.c=.o)
 
 #COMMANDS
 
-%.o : %.c
-				@${CC} ${FLAGS} -c $< -o $@
-
 all:			$(NAME)
 
 $(NAME):		$(OBJ_F) $(OBJ_SRCS)
