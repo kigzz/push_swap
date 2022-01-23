@@ -2,7 +2,6 @@
 #SETUP
 
 NAME			=	push_swap
-CHECKER_NAME	=	checker
 CC				=	gcc
 FLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
