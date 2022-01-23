@@ -45,6 +45,8 @@ int	*create_array(char **nbrs, int n_cnt)
 
 	i = -1;
 	flag_min_max = 0;
+	if (nbrs == NULL)
+		return (NULL);
 	arr = malloc(sizeof(int) * n_cnt);
 	if (!arr)
 		return (NULL);

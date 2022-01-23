@@ -12,6 +12,17 @@
 
 #include "../includes/push_swap.h"
 
+static char	*get_argv_str(char **argv, int i, char *av_str, char *tmp)
+{
+	tmp = ft_strjoin(av_str, argv[i]);
+	free(av_str);
+	av_str = tmp;
+	tmp = ft_strjoin(av_str, " ");
+	free(av_str);
+	av_str = tmp;
+	return (av_str);
+}
+
 static int	check_duplicate(int *arr, int n)
 {
 	int	i;
@@ -56,7 +67,7 @@ static int	check_numbers(char **nbrs)
 	return (0);
 }
 
-char	**parse_args(int argc, char **argv)
+static char	**parse_args(int argc, char **argv)
 {
 	char	**nbrs;
 	int		i;
@@ -65,14 +76,16 @@ char	**parse_args(int argc, char **argv)
 
 	i = 0;
 	av_str = ft_strdup("");
+	tmp = NULL;
 	while (++i < argc)
 	{
-		tmp = ft_strjoin(av_str, argv[i]);
-		free(av_str);
-		av_str = tmp;
-		tmp = ft_strjoin(av_str, " ");
-		free(av_str);
-		av_str = tmp;
+		if (argv[i][0] != '\0')
+			av_str = get_argv_str(argv, i, av_str, tmp);
+		else
+		{
+			free(av_str);
+			return (NULL);
+		}
 	}
 	nbrs = ft_split(av_str, ' ');
 	free(av_str);
@@ -86,6 +99,8 @@ int	check_input(int argc, char **argv, int **array)
 	int		i;
 
 	nbrs = parse_args(argc, argv);
+	if (nbrs == NULL)
+		return (-1);
 	i = -1;
 	n_cnt = 0;
 	while (nbrs[++i])
@@ -94,11 +109,9 @@ int	check_input(int argc, char **argv, int **array)
 	if (check_duplicate(*array, n_cnt) != 0 || check_numbers(nbrs) != 0
 		|| *array == NULL)
 	{
-		n_cnt = -1;
 		free(*array);
 		free_split(nbrs);
-		ft_putstr_fd("Error\n", 2);
-		return (n_cnt);
+		return (-1);
 	}
 	free_split(nbrs);
 	return (n_cnt);

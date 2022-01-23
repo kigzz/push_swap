@@ -19,7 +19,7 @@ OBJ_SRCS    	=	$(SRCS_PATH:%.c=%.o)
 
 FUNC_SRCS	=	ft_strdup.c ft_split.c ft_memcpy.c ft_strlen.c ft_atoi.c ft_isdigit.c \
                 ft_putchar_fd.c ft_putstr_fd.c ft_strjoin.c ft_dlstadd_back.c ft_dlstadd_front.c \
-                ft_dlstfirst.c ft_dlstlast.c ft_dlstnew.c ft_dlstsize.c
+                ft_dlstfirst.c ft_dlstlast.c ft_dlstnew.c ft_dlstsize.c ft_strcat.c ft_strcpy.c
 FUNC_DIR	=	functions/
 FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
 OBJ_F		=	$(FUNC:.c=.o)

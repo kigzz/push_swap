@@ -24,7 +24,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	n_cnt = check_input(argc, argv, &arr);
 	if (n_cnt < 0 || arr == NULL)
+	{
+		ft_putstr_fd("Error\n", 2);
 		return (1);
+	}
 	a_stack = create_list(n_cnt, arr);
 	free(arr);
 	handle_sort(&a_stack, &b_stack, n_cnt);

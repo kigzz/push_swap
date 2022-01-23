@@ -30,6 +30,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *str);
+char	*ft_strcat(char *s1, const char *s2);
+char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_atoi(const char *str, int *flags);
 void	ft_putchar_fd(char c, int fd);
@@ -53,7 +55,6 @@ void	free_tab(t_dlst **dlst);
 /* push_swap functions */
 
 int		check_input(int argc, char **argv, int **arr);
-char	**parse_args(int argc, char **argv);
 int		*create_array(char **nbrs, int n_cnt);
 t_dlst	*create_list(int n_cnt, int *arr);
 
