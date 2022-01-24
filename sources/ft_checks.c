@@ -79,7 +79,7 @@ static char	**parse_args(int argc, char **argv)
 	tmp = NULL;
 	while (++i < argc)
 	{
-		if (argv[i][0] != '\0')
+		if (is_empty(argv[i]) != 0 && check_numbers_is_int(argv[i]) == 0)
 			av_str = get_argv_str(argv, i, av_str, tmp);
 		else
 		{

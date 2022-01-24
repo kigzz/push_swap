@@ -55,6 +55,8 @@ void	free_tab(t_dlst **dlst);
 /* push_swap functions */
 
 int		check_input(int argc, char **argv, int **arr);
+int		check_numbers_is_int(char *str);
+int		is_empty(char *str);
 int		*create_array(char **nbrs, int n_cnt);
 t_dlst	*create_list(int n_cnt, int *arr);
 

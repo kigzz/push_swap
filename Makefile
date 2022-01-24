@@ -9,7 +9,7 @@ RM				=	rm -rf
 #FILES AND PATH
 
 SRCS    		=	push_swap.c ft_checks.c ft_creating.c ft_free.c ops_p.c ops_s.c ops_r.c ops_rr.c sort_small.c \
-					handle_sort.c sort_small_utils.c sort_big.c sort_big_utils.c
+					handle_sort.c sort_small_utils.c sort_big.c sort_big_utils.c ft_check2.c
 SRCS_DIR		=	sources/
 SRCS_PATH		=	$(addprefix $(SRCS_DIR), $(SRCS))
 OBJ_SRCS    	=	$(SRCS_PATH:%.c=%.o)
@@ -21,9 +21,12 @@ FUNC_SRCS		=	ft_strdup.c ft_split.c ft_memcpy.c ft_strlen.c ft_atoi.c ft_isdigit
                 	ft_dlstfirst.c ft_dlstlast.c ft_dlstnew.c ft_dlstsize.c ft_strcat.c ft_strcpy.c
 FUNC_DIR		=	functions/
 FUNC 			=	$(addprefix $(FUNC_DIR), $(FUNC_SRCS))
-OBJ_F			=	$(FUNC:.c=.o)
+OBJ_F			=	$(FUNC:%.c=%.o)
 
 #COMMANDS
+
+%.o : %.c
+				@$(CC) $(FLAGS) -c $< -o $@
 
 all:			$(NAME)
 
