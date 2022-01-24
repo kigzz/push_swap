@@ -17,7 +17,6 @@ t_dlst	*create_list(int n_cnt, int *arr)
 	t_dlst	*dlst;
 	int		i;
 	int		j;
-	int		tmp;
 	int		cnt;
 
 	i = -1;
@@ -30,8 +29,7 @@ t_dlst	*create_list(int n_cnt, int *arr)
 			while (++j < n_cnt)
 				if (j != i && arr[j] < arr[i])
 					cnt++;
-			tmp = cnt;
-			ft_dlstadd_back(&dlst, ft_dlstnew(tmp));
+			ft_dlstadd_back(&dlst, ft_dlstnew(cnt));
 		}
 	}
 	return (dlst);
