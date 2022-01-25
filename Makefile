@@ -39,22 +39,22 @@ all:				$(NAME) $(CHECKER_NAME)
 
 $(NAME):			$(OBJ_F) $(OBJ_SRCS)
 					@$(CC) $(FLAGS) $(OBJ_F) $(OBJ_SRCS) -o $(NAME)
-					@echo "$(NAME) created!"
+					@echo "$(NAME) program created!"
 
 $(CHECKER_NAME):	$(OBJ_F) $(CHECKER_OBJ)
 					@$(CC) $(FLAGS) $(OBJ_F) $(CHECKER_OBJ) -o $(CHECKER_NAME)
-					@echo "$(CHECKER_NAME) created"
+					@echo "$(CHECKER_NAME) program created"
 clean:
 					@$(RM) $(OBJ_SRCS)
 					@$(RM) $(OBJ_F)
 					@$(RM) $(CHECKER_OBJ)
 					@echo "object files deleted!"
 
-fclean:			clean
-				@$(RM) $(NAME)
-				@$(RM) $(CHECKER_NAME)
-				@echo "all deleted!"
+fclean:				clean
+					@$(RM) $(NAME)
+					@$(RM) $(CHECKER_NAME)
+					@echo "all deleted!"
 
-re:				fclean all
+re:					fclean all
 
-.PHONY:		all clean fclean bonus re
+.PHONY:				all clean fclean bonus re
