@@ -44,16 +44,13 @@ int	check_numbers_is_int(char *str)
 		return (1);
 	len = ft_strlen(str);
 	if (*str == '-' || *str == '+')
-		len--;
-	while (*str && *str == '0')
 	{
 		len--;
 		str++;
 	}
-	while (*str)
+	while (*str && *str == '0')
 	{
-		if (!is_space(*str))
-			len--;
+		len--;
 		str++;
 	}
 	if (len > 10)

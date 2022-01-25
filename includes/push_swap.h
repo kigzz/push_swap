@@ -16,6 +16,17 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+# ifndef MAX_OPEN
+#  define MAX_OPEN 1024
+# endif
 
 typedef struct s_dlst
 {
@@ -24,7 +35,7 @@ typedef struct s_dlst
 	struct s_dlst	*prev;
 }	t_dlst;
 
-/* libft function */
+/* libft functions */
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	**ft_split(char const *s, char c);
@@ -37,6 +48,14 @@ int		ft_atoi(const char *str, int *flags);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_isdigit(char c);
+
+/* Checker functions */
+
+char	*ft_get_next_line(int fd);
+char	*ft_strchr(const char *str, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /* double link list functions */
 
